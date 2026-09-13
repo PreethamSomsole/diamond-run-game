@@ -29,10 +29,10 @@
         <aside class="sidebar left-panel">
           <div class="panel-block mission-block">
             <div class="eyebrow">ACTIVE MISSION</div>
-            <h2>Find the carrier.</h2>
-            <p>Locate the hostile runner carrying the diamond, defeat him, and extract before the zone locks down.</p>
+            <h2>Hunt the monster.</h2>
+            <p>Navigate the maze, fight through the villain's guards, defeat the monster, and recover the diamond from its backpack.</p>
             <div class="mission-progress"><span id="missionProgress"></span></div>
-            <div class="mission-meta"><span>OBJECTIVE</span><strong id="objectiveText">CARRIER ALIVE</strong></div>
+            <div class="mission-meta"><span>OBJECTIVE</span><strong id="objectiveText">MONSTER ALIVE</strong></div>
           </div>
 
           <div class="panel-block controls-block">
@@ -58,8 +58,8 @@
             <canvas id="gameCanvas" width="900" height="560" aria-label="Diamond Run game map"></canvas>
             <div class="start-overlay" id="startOverlay">
               <div class="overlay-kicker">OPERATION NIGHTFALL</div>
-              <h2>Recover the diamond.<br /><em>Make it out alive.</em></h2>
-              <p>A hostile carrier is somewhere in Sector 07. Move through the ruins, collect field power-ups, and use the safe zones to survive.</p>
+              <h2>Enter the maze.<br /><em>Recover the diamond.</em></h2>
+              <p>A horned monster and its guards control Sector 07. Find a path through the maze, collect shields and coins, then defeat the monster.</p>
               <button class="primary-button" id="startButton">START MISSION <span>→</span></button>
             </div>
             <div class="toast" id="toast"></div>
@@ -71,7 +71,7 @@
           </div>
           <div class="game-foot">
             <span><i class="legend-dot player-dot"></i> YOU</span>
-            <span><i class="legend-dot enemy-dot"></i> CARRIER</span>
+            <span><i class="legend-dot enemy-dot"></i> ENEMIES</span>
             <span><i class="legend-dot safe-dot"></i> SAVE ZONE</span>
             <span><i class="legend-dot pickup-dot"></i> POWER-UP</span>
             <span class="map-hint">ARROW KEYS ALSO WORK</span>
@@ -94,7 +94,7 @@
 
           <div class="panel-block intel-block">
             <div class="eyebrow">FIELD INTEL</div>
-            <div class="intel-row"><span class="intel-symbol">◇</span><div><strong id="carrierStatus">CARRIER UNKNOWN</strong><small>Diamond signal masked</small></div></div>
+            <div class="intel-row"><span class="intel-symbol">♜</span><div><strong id="carrierStatus">MONSTER UNKNOWN</strong><small>Diamond carried in backpack</small></div></div>
             <div class="intel-row"><span class="intel-symbol safe-symbol">⌂</span><div><strong>2 SAVE ZONES</strong><small>Recover armor inside</small></div></div>
             <div class="intel-row"><span class="intel-symbol coin-symbol">◆</span><div><strong id="pickupStatus">NO POWER-UPS</strong><small>Collect for bonuses</small></div></div>
           </div>
