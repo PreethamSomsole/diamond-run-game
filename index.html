@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diamond Run — Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <div>
+            <div class="eyebrow">FIELD OPS / PROTOTYPE 01</div>
+            <h1>DIAMOND RUN</h1>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <span class="status-dot"><i></i> SIGNAL ONLINE</span>
+          <button class="icon-button" id="soundToggle" aria-label="Toggle sound">◒</button>
+        </div>
+      </header>
+
+      <section class="game-layout">
+        <aside class="sidebar left-panel">
+          <div class="panel-block mission-block">
+            <div class="eyebrow">ACTIVE MISSION</div>
+            <h2>Find the carrier.</h2>
+            <p>Locate the hostile runner carrying the diamond, defeat him, and extract before the zone locks down.</p>
+            <div class="mission-progress"><span id="missionProgress"></span></div>
+            <div class="mission-meta"><span>OBJECTIVE</span><strong id="objectiveText">CARRIER ALIVE</strong></div>
+          </div>
+
+          <div class="panel-block controls-block">
+            <div class="eyebrow">CONTROLS</div>
+            <div class="control-row"><span class="keys"><b>W</b><b>A</b><b>S</b><b>D</b></span><span>Move</span></div>
+            <div class="control-row"><span class="key-wide">SPACE</span><span>Fire weapon</span></div>
+            <div class="control-row"><span class="key-wide">SHIFT</span><span>Dash</span></div>
+            <div class="control-row"><span class="key-wide">B</span><span>Open armory</span></div>
+          </div>
+
+          <div class="panel-block tip-block">
+            <div class="tip-icon">◉</div>
+            <div><div class="eyebrow">FIELD TIP</div><p>Save zones restore armor and refill your active weapon.</p></div>
+          </div>
+        </aside>
+
+        <section class="game-card">
+          <div class="game-head">
+            <div><span class="live-pill"><i></i> LIVE MAP</span><span class="map-name">SECTOR 07 / NIGHTFALL</span></div>
+            <div class="timer" id="timer">00:00</div>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="gameCanvas" width="900" height="560" aria-label="Diamond Run game map"></canvas>
+            <div class="start-overlay" id="startOverlay">
+              <div class="overlay-kicker">OPERATION NIGHTFALL</div>
+              <h2>Recover the diamond.<br /><em>Make it out alive.</em></h2>
+              <p>A hostile carrier is somewhere in Sector 07. Move through the ruins, collect field power-ups, and use the safe zones to survive.</p>
+              <button class="primary-button" id="startButton">START MISSION <span>→</span></button>
+            </div>
+            <div class="toast" id="toast"></div>
+            <div class="armory-modal" id="armoryModal">
+              <div class="modal-header"><div><div class="eyebrow">SUPPLY CACHE</div><h3>ARMORY</h3></div><button id="closeArmory">×</button></div>
+              <p class="modal-copy">Spend coins to unlock better tools for the next run.</p>
+              <div class="weapon-list" id="weaponList"></div>
+            </div>
+          </div>
+          <div class="game-foot">
+            <span><i class="legend-dot player-dot"></i> YOU</span>
+            <span><i class="legend-dot enemy-dot"></i> CARRIER</span>
+            <span><i class="legend-dot safe-dot"></i> SAVE ZONE</span>
+            <span><i class="legend-dot pickup-dot"></i> POWER-UP</span>
+            <span class="map-hint">ARROW KEYS ALSO WORK</span>
+          </div>
+        </section>
+
+        <aside class="sidebar right-panel">
+          <div class="panel-block stat-block">
+            <div class="stat-label"><span>ARMOR</span><strong id="armorValue">100</strong></div>
+            <div class="bar armor-bar"><span id="armorBar"></span></div>
+            <div class="stat-label"><span>COINS</span><strong class="coin-value">◆ <span id="coinValue">0</span></strong></div>
+          </div>
+
+          <div class="panel-block weapon-block">
+            <div class="eyebrow">EQUIPPED</div>
+            <div class="weapon-title"><span class="weapon-icon">⌁</span><div><h3 id="weaponName">PULSE BLASTER</h3><small id="weaponAmmo">AMMO 18 / 18</small></div></div>
+            <div class="ammo-bar"><span id="ammoBar"></span></div>
+            <button class="secondary-button" id="armoryButton">OPEN ARMORY <span>B</span></button>
+          </div>
+
+          <div class="panel-block intel-block">
+            <div class="eyebrow">FIELD INTEL</div>
+            <div class="intel-row"><span class="intel-symbol">◇</span><div><strong id="carrierStatus">CARRIER UNKNOWN</strong><small>Diamond signal masked</small></div></div>
+            <div class="intel-row"><span class="intel-symbol safe-symbol">⌂</span><div><strong>2 SAVE ZONES</strong><small>Recover armor inside</small></div></div>
+            <div class="intel-row"><span class="intel-symbol coin-symbol">◆</span><div><strong id="pickupStatus">NO POWER-UPS</strong><small>Collect for bonuses</small></div></div>
+          </div>
+
+          <button class="reset-button" id="resetButton">↻ RESET SIMULATION</button>
+        </aside>
+      </section>
+
+      <footer class="footer"><span>DIAMOND RUN // A BROWSER GAME CONCEPT</span><span>BUILD 0.1.0</span></footer>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
